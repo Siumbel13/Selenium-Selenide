@@ -1,5 +1,6 @@
 package ru.netology;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +21,9 @@ public class CallbackTest {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "driver/win/chromedriver.exe");
+
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
@@ -30,7 +33,7 @@ public class CallbackTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
         driver.get("http://localhost:9999/");
     }
 
