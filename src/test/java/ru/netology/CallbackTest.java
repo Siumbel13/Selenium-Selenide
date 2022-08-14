@@ -41,11 +41,11 @@ public class CallbackTest {
     @Test
     void test() {
         List<WebElement> elements = driver.findElements(By.className("input__control"));
-        elements.get(0).sendKeys("Алексей");
-        elements.get(1).sendKeys("+79999999999");
-        driver.findElement(By.className("checkbox__box")).click();
+        driver.findElement(By.cssSelector("[data-test-id= 'name'] input")).sendKeys("Михаил Салтыков-Щедрин");
+        driver.findElement(By.cssSelector("[data-test-id= 'phone'] input")).sendKeys("+79999999999");
+        driver.findElement(By.cssSelector("[data-test-id = 'agreement']")).click();
         driver.findElement(By.className("button_view_extra")).click();
-        String text = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
 
